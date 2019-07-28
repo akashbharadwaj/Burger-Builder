@@ -1,0 +1,26 @@
+import React from 'react';
+import Styles from './Modal.module.css';
+import BackDrop from '../BackDrop/BackDrop';
+import Aux from '../../../hoc/Auxiliary';
+
+const modal = (props) =>{
+    //const show = props.show;
+    
+    return (
+        <Aux>
+            <BackDrop show={props.show} closeModal={props.closeModal}/>
+            <div 
+            className={Styles.Modal}
+            style={{
+                transform: props.show? 'translateY(0)' : 'translateY(-100vh)',
+                opacity: props.show? '1' : '0'
+
+            }}>
+                {props.children}
+            </div>
+        </Aux>
+    );
+    
+};
+
+export default modal;
